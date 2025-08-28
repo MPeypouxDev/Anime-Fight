@@ -48,7 +48,7 @@ controls.addEventListener('click', (e) => {
     const f = btn.dataset.filter;
     document.querySelectorAll('.card').forEach(card => {
         const show = (f === "all") || (card.dataset.type.toLowerCase() === f.toLowerCase());
-        card.style.outline = show ? '': 'none';
+        card.style.display = show ? '': 'none';
     });
 });
 
