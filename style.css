@@ -1,0 +1,140 @@
+:root {
+    --bg: #510101;
+    --panel: #3b0101;
+    --panel-2: #290101;
+    --text: #edf2f7;
+    --muted: #97a3b6;
+    --accent: #ff5c5c;
+    --accent-2: #00d1b2;
+    --ring: rgb(65, 0, 0);
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --radius: 18px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    color: var(--text);
+    background: var(--bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.title img{
+    width: 150px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn.active {
+    background: var(--accent);
+    color: #fff;
+}
+
+.grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    margin-top: 20px;
+}
+
+.card {
+    background: linear-gradient(180deg, var(--panel), var(--panel-2));
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 16px rgb(235, 47, 5);
+}
+
+
+
+.thumb {
+    position: relative;
+    aspect-ratio: 4/3;
+}
+
+.thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background: rgba(0, 0, 0, .5);
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.content {
+    padding: 12px;
+}
+
+.name {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 6px;
+}
+
+.tech {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 8px;
+}
+
+.stat {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+#battleZone {
+    margin-top: 40px;
+    padding: 20px;
+    border: 2px dashed var(--accent);
+    border-radius: var(--radius);
+    text-align: center;
+}
+
+#battle-result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}

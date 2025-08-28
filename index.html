@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Anime Fight</title>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="title"><a href="index.html"><img src="image/unnamed.png" alt="Logo du site"></a></div>
+                <div class="controls" id="filters">
+                    <button class="btn" data-filter="all">Tous</button>
+                    <button class="btn" data-filter="DPS">DPS</button>
+                    <button class="btn" data-filter="Tank">Tank</button>
+                    <button class="btn" data-filter="Support">Support</button>
+                </div>
+        </header>
+        <main class="grid" id="grid"></main>
+        <div id="battleZone">
+            <h2>Zone de Combat</h2>
+            <div id="selected"></div>
+            <button class="btn" id="fightButton" disabled>Combattre</button>
+            <div id="battleResult"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
