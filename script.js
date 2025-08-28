@@ -57,16 +57,40 @@ let selectedFighters = [];
 function selectFighter(c, card) {
     if (selectedFighters.length < 2 && !selectedFighters.includes(c)) {
         selectedFighters.push(c);
+        fighterImages();
         card.style.outline = '3px solid var (--accent)';
     }
     if (selectedFighters.length === 2) {
         document.getElementById('fightButton').disabled = false;
+        fighterImages();
     }
 }
 
 function showSelected() {
     const div = document.getElementById('selected');
-    div.innerHTML = selectedFighters.map (f => `<b>${f.name}</b>`).join (' VS ');
+    if (selectedFighters.length === 0) {
+        div.innerHTML = "Séléctionne deux héros pour lancer le combat";
+    } else {
+        div.innerHTML = selectedFighters.map(f => `<b>${f.name}</b>`).join(' VS ');
+    }
+}
+
+function fighterImages() {
+    const fighterOne = document.getElementById('fighterOne');
+    const fighterTwo = document.getElementById('fighterTwo');
+    if (selectedFighters.length === 0) {
+        fighterOne.innerHTML = "";
+        fighterTwo.innerHTML = "";
+    } if (selectedFighters.length === 1) {
+        const firstFighter = selectedFighters[0];
+        fighterOne.innerHTML = `<img src="${firstFighter.image}" alt="${firstFighter.name}"><p>${firstFighter.name}</p>`;
+        fighterTwo.innerHTML = "";
+    } else if (selectedFighters.length === 2) {
+        const firstFighter = selectedFighters[0];
+        fighterOne.innerHTML = `<img src="${firstFighter.image}" alt="${firstFighter.name}"><p>${firstFighter.name}</p>`;
+        const secondFighter = selectedFighters[1];
+        fighterTwo.innerHTML = `<img src="${secondFighter.image}" alt="${secondFighter.name}"><p>${secondFighter.name}</p>`;
+    }
 }
 
 document.getElementById('fightButton').addEventListener('click', () => {
@@ -74,13 +98,14 @@ document.getElementById('fightButton').addEventListener('click', () => {
     const p1 = power(f1);
     const p2 = power(f2);
     let result;
-    if (p1 > p2) result = `${f1.name} gagne le combat !`;
-    else if (p2 > p1) result = `${f2.name} gagne le combat !`;
+    if (p1 > p2) result = `${f1.name} gagne le combat ! <img src="${f1.image}" alt="${f1.name}">`;
+    else if (p2 > p1) result = `${f2.name} gagne le combat ! <img src="${f2.image}" alt="${f2.name}">`;
     else result = `Match nul ! La terre explose !!!`;
 
-    document.getElementById('battleResult').textContent = result;
+    document.getElementById('battleResult').innerHTML = result;
 
     selectedFighters = [];
+    fighterImages();
     document.querySelectorAll('.card').forEach(c => c.style.outline = 'none');
     document.getElementById('fightButton').disabled = true;
     showSelected();

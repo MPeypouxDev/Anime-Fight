@@ -49,6 +49,7 @@ header {
 
 .btn {
     padding: 8px 14px;
+    margin-top: 2rem;
     border-radius: 12px;
     border: none;
     cursor: pointer;
@@ -137,4 +138,33 @@ header {
     margin-top: 20px;
     font-size: 20px;
     font-weight: 700;
+}
+
+#fighterImage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#fighterOne img,
+#fighterTwo img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+#battleResult img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+}
+
+#versusLogo img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--radius);
 }
