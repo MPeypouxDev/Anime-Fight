@@ -5,7 +5,7 @@ const characters = [
     { name: "Edward Elric", force: 75, magie: 98, vitesse: 80, technique: "Alchimie", type: "Support", image: "image/edward.png"},
     { name: "Saitama", force: 100, magie: 50, vitesse: 95, technique: "Serious Punch", type: "DPS", image: "image/saitama.jpg"},
     { name: "Goku", force: 100, magie: 100, vitesse: 100, technique: "Kamehameha", type: "Support", image: "image/goku.jpg"},
-    { name: "Kid Buu", force: 90, magie: 98, vitesse: 100, technique: "Kamehameha rose", type: "Support", image: "image/buu.jpg"},
+    { name: "Kid Buu", force: 90, magie: 98, vitesse: 100, technique: "Kamehameha rose", type: "Support", image: "image/Buu.jpg"},
     { name: "Aizen", force: 90, magie: 95, vitesse: 100, technique: "Cerceuil Noir", type: "DPS", image: "image/aizen.jpg"},
     { name: "Barbe Noire", force: 100, magie: 100, vitesse: 70, technique: "Black Hole", type: "Tank", image: "image/barbenoire.jpg"},
     { name: "Bradley", force: 85, magie: 90, vitesse: 90, technique: "Ultimate eye", type: "Support", image: "image/bradley.jpg"},
@@ -57,6 +57,10 @@ let selectedFighters = [];
 function selectFighter(c, card) {
     if (selectedFighters.length < 2 && !selectedFighters.includes(c)) {
         selectedFighters.push(c);
+        if (selectedFighters.length === 1) {
+            document.getElementById("versusLogo").innerHTML = `<img src="image/Versus.png" alt="Logo du Versus">`;
+            document.getElementById("battleResult").innerHTML = "";
+        }
         fighterImages();
         card.style.outline = '3px solid var (--accent)';
     }
@@ -102,6 +106,7 @@ document.getElementById('fightButton').addEventListener('click', () => {
     else if (p2 > p1) result = `${f2.name} gagne le combat ! <img src="${f2.image}" alt="${f2.name}">`;
     else result = `Match nul ! La terre explose !!!`;
 
+    document.getElementById("versusLogo").innerHTML = "";
     document.getElementById('battleResult').innerHTML = result;
 
     selectedFighters = [];
