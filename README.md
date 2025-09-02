@@ -1,6 +1,6 @@
 # Anime Fight Game
 
-![Aperçu du jeu](animefight-screenshot.png)
+![Aperçu du jeu](/image/animefight-screenshot.png)
 
 Un jeu de combat simple mettant en scène des personnages d'anime populaires. Sélectionnez deux combattants et découvrez qui remportera le duel basé sur leurs statistiques.
 
